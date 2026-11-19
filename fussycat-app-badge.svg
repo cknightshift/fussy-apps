@@ -1,23 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="375" height="250" viewBox="0 0 1500 1000">
-  <!-- Transparent background: intentionally empty -->
+  <title>Fussy Apps by fussycat.app</title>
 
-  <!-- Line 1 : kicker, resized to fit inside the canvas -->
-  <text x="750" y="380"
-        text-anchor="middle"
-        font-family="'Archivo Black','Arial Black','Helvetica Neue',sans-serif"
-        font-size="80" font-weight="900"
-        letter-spacing="30"
-        fill="#cf8fbf">FUSSY APPS BY A</text>
+  <!-- Shared type styles -->
+  <g font-family="'Archivo Black','Arial Black','Helvetica Neue',sans-serif"
+     font-weight="900">
 
-  <!-- Line 2 : boxed URL badge, widened with safe padding -->
-  <rect x="15" y="520" width="1470" height="250" rx="20"
-        fill="none" stroke="#d68fc0" stroke-width="10"/>
+    <!-- Kicker -->
+    <text x="750" y="380"
+          text-anchor="middle"
+          font-size="80"
+          letter-spacing="34"
+          fill="#cf8fbf">FUSSY APPS BY</text>
 
-  <!-- Main wordmark, scaled to fit comfortably inside the border -->
-  <text x="750" y="705"
-        text-anchor="middle"
-        font-family="'Archivo Black','Arial Black','Helvetica Neue',sans-serif"
-        font-size="185" font-weight="900"
-        letter-spacing="2"
-        fill="#d68fc0">fussycat<tspan font-size="92" letter-spacing="1" dx="6" dy="-46">.app</tspan></text>
+    <!-- URL badge -->
+    <rect x="15" y="520" width="1470" height="250" rx="20"
+          fill="none" stroke="#d68fc0" stroke-width="10"/>
+
+    <!-- Wordmark with raised half-size suffix -->
+    <text x="750" y="705"
+          text-anchor="middle"
+          font-size="185"
+          letter-spacing="2"
+          fill="#d68fc0">fussycat<tspan font-size="92" letter-spacing="1" dx="6" dy="-46">.app</tspan></text>
+
+  </g>
 </svg>
