@@ -26,6 +26,11 @@
     --mut: #7fa89e;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Dark base painted behind everything: no white flash on mobile overscroll bounce */
+  html {
+    background-color: var(--bg);
+    overscroll-behavior-y: none;
+  }
   body {
     font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
     color: var(--ink);
