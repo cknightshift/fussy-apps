@@ -6,12 +6,15 @@
 <title>Fussy Apps — fussycat.app</title>
 <meta name="description" content="Fussy Apps — carefully crafted by a fussy cat. Featuring FX Convert: convert those currencies, meow.">
 <meta name="theme-color" content="#081410">
+<meta name="color-scheme" content="dark">
+<!-- CSP: this page runs no scripts, forms, or frames — the policy locks it to exactly the assets it uses -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'">
 <link rel="canonical" href="https://fussycat.app/">
 <meta property="og:title" content="Fussy Apps">
 <meta property="og:description" content="Carefully crafted by a fussy cat. Featuring FX Convert: convert those currencies, meow.">
-<meta property="og:image" content="https://fussycat.app/fussycat-comic.webp">
-<meta property="og:image:width" content="1248">
-<meta property="og:image:height" content="832">
+<meta property="og:image" content="https://fussycat.app/fussycat-comic.png">
+<meta property="og:image:width" content="624">
+<meta property="og:image:height" content="416">
 <meta property="og:image:alt" content="Fussy Cat comic for FX Convert">
 <meta property="og:url" content="https://fussycat.app/">
 <meta property="og:type" content="website">
@@ -33,10 +36,14 @@
     --mut: #7fa89e;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  /* Dark base painted behind everything: no white flash on mobile overscroll bounce */
+  /* Dark base painted behind everything: no white flash on mobile
+     overscroll bounce. overflow-anchor on html — the document's
+     actual scroll container — unplugs Chrome's scroll anchoring
+     machinery: useful on long articles, pure nuisance here */
   html {
     background-color: var(--bg);
     overscroll-behavior-y: none;
+    overflow-anchor: none;
   }
   body {
     font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -49,11 +56,9 @@
     /* svh sizes the page to the smallest the viewport can be, so the
        collapsing mobile URL bar never resizes the page mid-scroll —
        nothing for Chrome's scroll anchoring to grip (vh kept as the
-       old-browser fallback). overflow-anchor unplugs the anchoring
-       machinery itself: useful on long articles, pure nuisance here */
+       old-browser fallback) */
     min-height: 100vh;
     min-height: 100svh;
-    overflow-anchor: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +67,10 @@
   }
   /* Touch devices: scroll the background with the page. Fixed
      attachment forces repaints on Android Chrome during the URL-bar
-     transition; the dark html backdrop keeps the look identical */
+     transition; the dark html backdrop keeps the look identical.
+     Deliberate tradeoff: iPadOS with a mouse attached reports a fine
+     pointer and slips past this gate — accepted, so desktop Safari
+     on macOS keeps the pinned gradient */
   @media (pointer: coarse) {
     body { background-attachment: scroll; }
   }
@@ -157,6 +165,7 @@
     margin-right: -.12em; /* optical centreing for the uppercase footer */
     color: var(--rose-light);
     text-transform: uppercase;
+    text-align: center;
   }
   footer a {
     color: inherit;
@@ -165,6 +174,11 @@
     transition: color .15s ease, border-color .15s ease;
   }
   footer a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+  .ver {
+    display: block;
+    margin-top: 6px;
+    text-transform: none; /* the stamp keeps its lowercase 'v' */
+  }
 
   /* Keyboard users get a clear focus ring; mouse users see nothing extra */
   a:focus-visible {
@@ -192,10 +206,11 @@
     </h1>
   </header>
 
-  <!-- The comic: the browser picks the smaller PNG on small screens and
-       the full WEBP on large/high-resolution ones — the last inline
-       script on the page is retired with it -->
-  <img class="comic" src="fussycat-comic.webp"
+  <!-- The comic: resolution tiering via srcset — low-DPR displays fetch
+       the compact PNG, high-DPR displays (most phones, retina screens)
+       fetch the full WEBP. The default src is the PNG so even a
+       srcset-less browser renders it -->
+  <img class="comic" src="fussycat-comic.png"
        srcset="fussycat-comic.png 624w, fussycat-comic.webp 1248w"
        sizes="(min-width: 640px) 620px, 94vw"
        width="1248" height="832"
@@ -211,7 +226,8 @@
     </section>
   </main>
 
-  <footer>fussycat.app · crafted by <a href="https://github.com/cknightshift" target="_blank" rel="noopener noreferrer nofollow">cknightshift</a></footer>
+  <footer>fussycat.app · crafted by <a href="https://github.com/cknightshift" target="_blank" rel="noopener noreferrer nofollow">cknightshift</a>
+  <span class="ver">v10.45</span></footer>
 
 </div>
 
