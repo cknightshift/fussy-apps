@@ -207,11 +207,11 @@
   </header>
 
   <!-- The comic: resolution tiering via srcset — low-DPR displays fetch
-       the compact PNG, high-DPR displays (most phones, retina screens)
-       fetch the full WEBP. The default src is the PNG so even a
-       srcset-less browser renders it -->
+       the compact small WEBP, high-DPR displays (most phones, retina
+       screens) fetch the full WEBP. The default src is the PNG so even
+       an ancient srcset-less, WEBP-less browser renders it -->
   <img class="comic" src="fussycat-comic.png"
-       srcset="fussycat-comic.png 624w, fussycat-comic.webp 1248w"
+       srcset="fussycat-comic-small.webp 624w, fussycat-comic.webp 1248w"
        sizes="(min-width: 640px) 620px, 94vw"
        width="1248" height="832"
        decoding="async" fetchpriority="high"
@@ -227,7 +227,7 @@
   </main>
 
   <footer>fussycat.app · crafted by <a href="https://github.com/cknightshift" target="_blank" rel="noopener noreferrer nofollow">cknightshift</a>
-  <span class="ver">v10.45</span></footer>
+  <span class="ver">v10.46</span></footer>
 
 </div>
 
