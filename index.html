@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://fussycat.app/fussycat-comic.png">
 <meta property="og:image:width" content="624">
 <meta property="og:image:height" content="416">
-<meta property="og:image:alt" content="Fussy Cat comic for FX Convert">
+<meta property="og:image:alt" content="Fussy Cat meticulously crafting FX Convert — a fussy app for a fussy cat">
 <meta property="og:url" content="https://fussycat.app/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -37,13 +37,9 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   /* Dark base painted behind everything: no white flash on mobile
-     overscroll bounce. overflow-anchor on html — the document's
-     actual scroll container — unplugs Chrome's scroll anchoring
-     machinery: useful on long articles, pure nuisance here */
+     overscroll bounce */
   html {
     background-color: var(--bg);
-    overscroll-behavior-y: none;
-    overflow-anchor: none;
   }
   body {
     font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -52,37 +48,17 @@
       radial-gradient(1200px 600px at 20% 0%, rgba(62,230,200,.10), transparent 60%),
       radial-gradient(1000px 500px at 85% 100%, rgba(176,78,144,.07), transparent 60%),
       linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 55%, var(--bg) 100%);
-    background-attachment: fixed;
-    /* svh sizes the page to the smallest the viewport can be, so the
-       collapsing mobile URL bar never resizes the page mid-scroll —
-       nothing for Chrome's scroll anchoring to grip (vh kept as the
-       old-browser fallback) */
-    min-height: 100vh;
-    min-height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 18px;
     color-scheme: dark;
   }
-  /* Touch devices: scroll the background with the page. Fixed
-     attachment forces repaints on Android Chrome during the URL-bar
-     transition; the dark html backdrop keeps the look identical.
-     Deliberate tradeoff: iPadOS with a mouse attached reports a fine
-     pointer and slips past this gate — accepted, so desktop Safari
-     on macOS keeps the pinned gradient */
-  @media (pointer: coarse) {
-    body { background-attachment: scroll; }
-  }
-  /* Centring wrapper: safe centring that never clips the top when
-     content is taller than the window, while keeping the landmark
-     elements (header/main/footer) siblings rather than nesting them
-     inside main, so screen readers expose the landmarks properly */
+  /* Landmarks stay siblings (header/main/footer) for screen readers */
   .page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-block: auto;
   }
   /* Text selection joins the palette: teal highlight over dark ink */
   ::selection { background-color: var(--teal); color: var(--bg); }
@@ -160,6 +136,7 @@
   .launch-btn:active { transform: translateY(0); }
   footer {
     margin-top: 30px;
+    padding: 40px 18px 6px;
     font-size: 12px;
     letter-spacing: .12em;
     margin-right: -.12em; /* optical centreing for the uppercase footer */
@@ -213,9 +190,9 @@
   <img class="comic" src="fussycat-comic.png"
        srcset="fussycat-comic-small.webp 624w, fussycat-comic.webp 1248w"
        sizes="(min-width: 660px) 620px, 94vw"
-       width="1248" height="832"
+       width="624" height="416"
        decoding="async" fetchpriority="high"
-       alt="Fussy Cat comic: FX Convert — AUD 9 gives NZD 11.01">
+       alt="Fussy Cat meticulously crafting FX Convert — the fussiest app by the fussiest cat. A working conversion: AUD 9 converts to NZD 11.01. Be a cool, clever kitty too — use FX Convert!">
 
   <!-- Featured app card -->
   <main>
@@ -227,7 +204,7 @@
   </main>
 
   <footer>fussycat.app · crafted by <a href="https://github.com/cknightshift" target="_blank" rel="noopener noreferrer nofollow">cknightshift</a>
-  <span class="ver">v10.47</span></footer>
+  <span class="ver">v10.49</span></footer>
 
 </div>
 
