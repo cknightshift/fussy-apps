@@ -147,6 +147,14 @@
     text-transform: uppercase;
     text-align: center;
   }
+  /* Footer seal: two-thirds the rendered width of the credit line
+     (~330px), so the badge sits inside the line's optical footprint */
+  .foot-badge {
+    display: block;
+    width: 220px;
+    height: auto;
+    margin: 0 auto 16px;
+  }
   footer a {
     color: inherit;
     text-decoration: none;
@@ -206,8 +214,12 @@
     </section>
   </main>
 
-  <footer>fussycat.app · crafted by <a href="https://github.com/cknightshift" target="_blank" rel="noopener noreferrer nofollow">cknightshift</a>
-  <span class="ver">v10.53</span></footer>
+  <footer>
+  <img class="foot-badge" src="fussycat-comic-badge.webp" width="341" height="341"
+       decoding="async"
+       alt="Fussy Cat — teal risograph portrait in magenta aviator sunglasses with magenta code rain">
+  fussycat.app · crafted by <a href="https://github.com/cknightshift" target="_blank" rel="noopener noreferrer nofollow">cknightshift</a>
+  <span class="ver">v10.54</span></footer>
 
 </div>
 
